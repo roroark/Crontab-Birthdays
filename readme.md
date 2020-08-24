@@ -1,7 +1,7 @@
  
 ## CRONTAB BIRTHDAYS!
 
-1. Update all birthdays in the dates.txt file. Format can be inferred by looking at the file itself.
+1. Fill in the TODO sections in `cron_mail.csh` and modify `dates.txt` with birthday data. The format can be inferred by looking at the file itself.
 2. Run (one time):<br>
     `crontab /path/to/cron.job`<br>
    <b>Note:</b> The cron job is set to run at 8AM every morning.
