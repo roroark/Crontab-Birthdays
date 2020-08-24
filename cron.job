@@ -1,0 +1,1 @@
+0 8 * * * /bin/csh /data/Radar_tpr12_pg1p0_pd4/CRONTAB_BIRTHDAYS/cron_mail.csh
