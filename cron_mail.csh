@@ -12,7 +12,7 @@
 #TODO:
 #Set the below fields. I set the 'from_email' to the mail-list which is CCed.
 set birthday_data = /path/to/dates.txt
-set from_email    = from@company.com
+set mail_list     = team@company.com
 set admin_email   = birthday-admin@company.com
 
 set today = `date +%d-%b`
@@ -22,9 +22,9 @@ if ($birthdays_today > 0) then
     foreach employee_id (`echo $employee_ids`)
         set name = `grep -v "#" $birthday_data | grep  $employee_id | awk '{print $2}' | tr '_' ' '`
         set personal_email_id =  `de $employee_id | grep "Email address" | awk '{print $NF}'`
-        echo "" | mailx -r $from_email -s "[Radar SOC Birthdays] Happy Birthday $name!" -c $from_email $personal_email_id
+        echo "" | mailx -r $mail_list -s "[Birthday Bot] Happy Birthday $name!" -c $mail_list $personal_email_id
     end
 else
-    echo "" | mailx -r $from_email -s "[Radar SOC Birthdays] No birthday today." `whoami`@ti.com
+    echo "" | mailx -r $mail_list -s "[Birthday Bot] No birthday today." $admin_email
 endif
 
